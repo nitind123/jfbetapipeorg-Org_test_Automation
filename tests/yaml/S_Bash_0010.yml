@@ -5,8 +5,6 @@ pipelines:
         type: Bash
         execution:
           onExecute:
-            - printenv
             - echo "executing step..."
             - |
-              [ $step_node_pool_name == "automation_node_default" ]
-
+              [ $step_node_pool_name == "u16dynamic"  ]

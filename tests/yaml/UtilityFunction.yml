@@ -1,11 +1,13 @@
+template: true
+valuesFilePath: ../values/gitRepoValues.yml
+
 resources:
   - name: repo_pipe
     type: GitRepo
     configuration:
       gitProvider: s_gitHub
-      path: jfbetapipeorg/Org_test_Automation/tests/core/yaml
-            
-      
+      path: {{ .Values.GitHub.Org_test_Automation.path }}
+
 pipelines:
   - name: utilityfuctiontest1
     steps:
@@ -16,37 +18,59 @@ pipelines:
             - name: s_gitHub
           inputResources:
             - name: repo_pipe
-            
+
         execution:
-          onExecute: 
+          onExecute:
             - printenv
             - bump_semver v3.0.0 major
             - bump_semver v3.0.0 minor
             - bump_semver v3.0.0 patch
             - bump_semver v3.0.0 beta
-            - pushd $res_repo_pipe_resourcePath    
+            - pushd $res_repo_pipe_resourcePath
             - touch keys
             - echo "name =$res_repo_pipe_gitProvider_name" >> keys
-            - replace_envs $PWD/keys 
+            - replace_envs $PWD/keys
             - cat keys
             - touch file.txt
             - echo "Hello frog" >> file.txt
             - touch test.txt
             - echo "Hello pipelines team" >> test.txt
-            - compare_git --resource repo_pipe --commit-range HEAD~3..HEAD pipelines.yml
-            - read_json sample.json "DOCKER_USERNAME"
-#             - write_output repo_pipe1 "imageTag=master" "sha=$commitSha" 
-#             - save_tests test.sh 
-            - add_cache_files $PWD/file.txt jfrog_pipe 
+            - compare_git --resource repo_pipe --commit-range HEAD~3..HEAD UtilityFunction.yml
+            - update_commit_status repo_pipe --status failure --message "My description 123" --context "stepB"
+            - read_json $res_repo_pipe_resourcePath/tests/yaml/sample.json "DOCKER_USERNAME"
+            - add_cache_files $PWD/file.txt jfrog_pipe
             - add_run_variables imageTag="master"
-            - export_run_variables 
-            - export_pipeline_variables 
+            #- add_run_variables runVaribale="foo   123"
             - add_run_files $PWD/test.txt jfrog
             - add_pipeline_variables scm=$int_s_gitHub_masterName
+            # - add_pipeline_variables pipelineVaribale="foo  bar"
+            - export_run_variables
+            - export_pipeline_variables
             - add_pipeline_files $PWD/file.txt jfrog_pipeline
             - find_resource_variable repo_pipe resourcePath
             - restore_cache_files jfrog_pipe $PWD/file.txt
             - cat file.txt
+            - openssl genrsa -out key.pem 1024
+            - openssl rsa -in key.pem -text -noout
+            - openssl rsa -in key.pem -pubout -out pub.pem
+            - openssl rsa -in pub.pem -pubin -text -noout
+            - encrypt_string "secretValue" --key pub.pem
+            - encrypted=$(encrypt_string "secretValue" --key pub.pem)
+            - echo "$encrypted"
+            - decrypt_string "$encrypted" --key key.pem
+            - ls -l
+            - touch crypt.txt
+            - echo "testing for sample encryption" >> crypt.txt
+            - encrypt_file --output encrypted.txt crypt.txt --key pub.pem
+            - cat encrypted.txt
+            - decrypt_file encrypted.txt --output decrypted.txt --key key.pem
+            - cat decrypted.txt
+            - python3 -m py_compile tests/core/sampleExecutionFile/calc.py
+            - pip install --upgrade pip
+            - hash -d pip
+            - pip install pytest
+            - py.test --verbose --junit-xml test-reports/results.xml tests/core/sampleExecutionFile/test_calc.py
+            - save_tests $res_repo_pipe_resourcePath/test-reports/results.xml
             - popd
 
       - name: utilityFunction2
@@ -57,7 +81,7 @@ pipelines:
           inputSteps:
             - name: utilityFunction
           inputResources:
-            - name: repo_pipe                
+            - name: repo_pipe
         execution:
           onExecute:
             - printenv
@@ -66,6 +90,8 @@ pipelines:
             - cat $PWD/test.txt
             - restore_cache_files jfrog_pipe $PWD/file.txt
             - echo "$imageTag"
+            - echo $runVariable
+            - echo $pipelineVariable
             - popd
 
       - name: utilityFunction3
@@ -76,7 +102,7 @@ pipelines:
           inputResources:
             - name: repo_pipe
           inputSteps:
-            - name: utilityFunction2          
+            - name: utilityFunction2
 
         execution:
           onExecute:
@@ -86,3 +112,21 @@ pipelines:
 #             - execute_command [--retry] printen
 #             - retry_command printen
             - popd
+
+      - name: utilityFunction4
+        type: PowerShell
+        configuration:
+          nodePool: win_2019
+          integrations:
+            - name: s_gitHub
+          inputResources:
+            - name: repo_pipe
+          inputSteps:
+            - name: utilityFunction3
+
+        execution:
+          onExecute:
+            - $imageTag
+            - $runVariable
+            - $scm
+            - $pipelineVaribale

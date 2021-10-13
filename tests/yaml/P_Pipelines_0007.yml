@@ -3,11 +3,6 @@ pipelines:
     configuration: 
       runtime:       
         type: host
-        image:
-          custom:
-            name: shippabledocker/jfreq
-            tag: latest
-            registry: i_dockerRegistry
     steps:
       - name: P_Pipelines_0007
         type: Bash

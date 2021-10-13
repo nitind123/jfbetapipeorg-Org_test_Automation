@@ -1,12 +1,16 @@
 pipelines:
   - name: P_Pipelines_0011
-    configuration: 
+    configuration:
+      environmentVariables:
+        readOnly:
+          ENV1: value1
+          ENV2: value2    
       runtime:       
         type: image
         image:
           custom:
-            name: shippabledocker/jfreqtesthelloworldtext
-            tag: work
+            name: shippabledocker/jfreq
+            tag: latest
             registry: i_dockerRegistry
     steps:
       - name: P_Pipelines_0011
@@ -14,3 +18,7 @@ pipelines:
         execution:
           onExecute:
             - echo "executing step..."
+            - |
+              [ "$step_image_name" == "shippabledocker/jfreq" ]
+            - |
+              [ "$step_image_tag" == "latest" ]
