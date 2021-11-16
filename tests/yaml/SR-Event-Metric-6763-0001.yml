@@ -18,11 +18,11 @@ pipelines:
         execution:
           onExecute:
             - echo "Normal Step"
+            
+  - name: SR_Event_Metric_6763_0002_normalStepPipeline
+    steps:
       - name: SR_Event_Metric_6763_0002_step
         type: Bash
-        configuration:
-          inputSteps:
-            - name: SR_Event_Metric_6763_0001_step
         execution:
           onExecute:
             - abcd
