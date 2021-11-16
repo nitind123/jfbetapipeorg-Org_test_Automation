@@ -19,7 +19,6 @@ pipelines:
           onExecute:
             - echo "Normal Step"
             
-    steps:
       - name: SR_Event_Metric_6763_0002_step
         type: Bash
         execution:
