@@ -140,11 +140,11 @@ pipelines:
             - name: e2e_0002_releaseBundle
           outputResources:
             - name: e2e_0002_signedReleaseBundle
-
-      - name: e2e_0002_distributeReleaseBundle
-        type: DistributeReleaseBundle
-        configuration:
-          dryRun: false                # optional
-          inputResources:
-            - name: e2e_0002_signedReleaseBundle    # one ReleaseBundle is required  
-            - name: e2e_0002_distributionRule
+      # skipping this until self distribution works
+      # - name: e2e_0002_distributeReleaseBundle
+      #   type: DistributeReleaseBundle
+      #   configuration:
+      #     dryRun: false                
+      #     inputResources:
+      #       - name: e2e_0002_signedReleaseBundle    
+      #       - name: e2e_0002_distributionRule
