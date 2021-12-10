@@ -1,8 +1,0 @@
-pipelines:
-  - name: PostMatrix_pipeline
-    steps:
-      - name: 
-        type: PostMatrix
-        execution:
-          onExecute:
-            - echo "Hello World"
