@@ -4,7 +4,6 @@ pipelines:
       - name: S_NC_Bash_001_001
         type: Bash
         configuration:
-          nodePool: test_automation_S_NC_kubernetesNodePool
           affinityGroup: S_NC_Bash_001
         execution:
           onExecute:
@@ -19,7 +18,6 @@ pipelines:
       - name: S_NC_Bash_001_002
         type: Bash
         configuration:
-          nodePool: test_automation_S_NC_kubernetesNodePool
           affinityGroup: S_NC_Bash_001
           inputSteps:
             - name: S_NC_Bash_001_001
