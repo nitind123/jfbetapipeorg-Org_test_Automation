@@ -4,7 +4,7 @@ kubernetesIntegration: s_kubernetes
 
 # pipeline resources
 GitRepo:
-  name: T_HelmPublishAndDeploy_0010_GitRepoRes
+  name: GitRepoRes
   type: GitRepo
   gitProvider: s_gitHub
   path: jfbetapipeorg/Org_test_Automation
@@ -14,31 +14,40 @@ GitRepo:
     include: master
 
 HelmChart:
-  name: T_HelmPublishAndDeploy_0010_HelmChartRes
+  name: HelmChartRes
   chartName: simplehelm
   chartVersion: 0.3.0
-  repository: helmpublishanddeploy-local
+  repository: simplecharts
   helmVersion: 3
   namespace: pipe-master-pool
 
 BuildInfo:
-  name: T_HelmPublishAndDeploy_0010_BuildInfoRes
+  name: BuildInfoRes
   buildName: foo
   buildNumber: ${run_number}
 
+BuildInfoPromoted:
+  name: BuildInfoPromotedRes
+
 # pipeline
 Pipeline:
-  name: T_HelmPublishAndDeploy_0010_HelmPublishAndDeploy
+  name: T_HelmPublishAndDeploy_0008
 
 # steps
 HelmPublish:
   name: HelmPublishStep
-  chartPath: 'tests/core/helmdeploy/simplehelm'
+  # required chart path not provided
+  # chartPath: 'tests/core/helmdeploy/simplehelm'
+
+PromoteBuild:
+  name: PromoteBuildStep
+  targetRepository: helm-promote
 
 HelmDeploy:
   name: HelmDeployStep
-  chartPath: '.'
-  releaseName: simplehelm-test-${run_number}
+  # required chart path not provided
+  # chartPath: '.'
+  releaseName: simplehelm-${run_id}
   flags: '--force --wait --timeout 900s --set image.repository=trriplejay/simplehelm --set image.tag=latest'
   lint: true
   lintFlags: '--strict'
