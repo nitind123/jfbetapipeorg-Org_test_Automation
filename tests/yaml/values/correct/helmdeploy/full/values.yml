@@ -4,7 +4,7 @@ kubernetesIntegration: s_kubernetes
 
 # pipeline resources
 GitRepo:
-  name: GitRepoRes
+  name: T_HelmPublishAndDeploy_0005_GitRepoRes
   type: GitRepo
   gitProvider: s_gitHub
   path: jfbetapipeorg/Org_test_Automation
@@ -14,7 +14,7 @@ GitRepo:
     include: master
 
 HelmChart:
-  name: HelmChartRes
+  name: T_HelmPublishAndDeploy_0005_HelmChartRes
   chartName: simplehelm
   chartVersion: 0.3.0
   repository: simplecharts
@@ -22,16 +22,16 @@ HelmChart:
   namespace: pipe-master-pool
 
 BuildInfo:
-  name: BuildInfoRes
+  name: T_HelmPublishAndDeploy_0005_BuildInfoRes
   buildName: foo
   buildNumber: ${run_number}
 
 BuildInfoPromoted:
-  name: BuildInfoPromotedRes
+  name: T_HelmPublishAndDeploy_0005_BuildInfoPromotedRes
 
 # pipeline
 Pipeline:
-  name: HelmPublishAndDeploy
+  name: T_HelmPublishAndDeploy_0005_HelmPublishAndDeploy
 
 # steps
 HelmPublish:
