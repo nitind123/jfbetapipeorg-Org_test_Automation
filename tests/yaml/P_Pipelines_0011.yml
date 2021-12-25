@@ -11,7 +11,7 @@ pipelines:
           custom:
             name: shippabledocker/jfreq
             tag: latest
-            registry: i_dockerRegistry
+            registry: s_dockerRegistry
     steps:
       - name: P_Pipelines_0011
         type: Bash

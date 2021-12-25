@@ -7,7 +7,7 @@ pipelines:
           custom:
             name: shippabledocker/helloworldtext
             tag: work
-            registry: i_dockerRegistry
+            registry: s_dockerRegistry
     steps:
       - name: P_Pipelines_0012
         type: Bash

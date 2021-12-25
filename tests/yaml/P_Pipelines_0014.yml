@@ -8,7 +8,7 @@ pipelines:
           custom:
             name: ubuntu
             tag: latest
-            registry: i_aws
+            registry: P_Pipelines_0014_aws
             region: us-east-1
     steps:
       - name: P_Pipelines_0014
