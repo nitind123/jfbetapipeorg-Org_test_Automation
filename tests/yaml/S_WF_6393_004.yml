@@ -4,7 +4,7 @@ pipelines:
       - name: S_WF_6393_004
         type: Bash
         configuration:
-          nodePool: nodePool_5859
+          nodePool: nodePool_6393_004
         execution:
           onExecute:
             - echo "test"
