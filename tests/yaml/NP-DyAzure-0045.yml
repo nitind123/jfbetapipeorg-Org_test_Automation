@@ -4,7 +4,7 @@ pipelines:
       - name: NP_DyAzure_0045
         type: Bash
         configuration:
-          nodePool: azure_dynamic_node_u16_with_diskSize
+          nodePool: NP_DyAzure_0045
         execution:
           onExecute:
             - echo "executing step on Azure dynamic node pool"
