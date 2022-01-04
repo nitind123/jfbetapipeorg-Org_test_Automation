@@ -8,16 +8,6 @@ resources:
 pipelines:
   - name: pipelines_auto
     steps:
-      - name: Bash_BuildInfo_Output
-        type: Bash
-        configuration:
-          outputResources:
-            - name: r_BuildInfo
-        execution:
-          onExecute:
-            - echo "executing step..."
-            - write_output r_BuildInfo "buildNumber=3"
-
       - name: Bash_BuildInfo_Input
         type: Bash
         configuration:

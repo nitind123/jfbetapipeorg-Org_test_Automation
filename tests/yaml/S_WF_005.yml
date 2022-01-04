@@ -11,7 +11,8 @@ pipelines:
           onExecute:
             - echo $MY_MESSAGE
             - echo "step_1"
-            - echo "Running $pipeline_name | $step_name on node ID $step_node_id"      
+            - echo "Running $pipeline_name | $step_name on node ID $step_node_id"
+            - sleep 30  
       - name: S_WF_005_2
         type: Bash
         configuration:

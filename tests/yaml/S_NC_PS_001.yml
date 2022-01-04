@@ -6,8 +6,6 @@ pipelines:
         configuration:
           nodePool: win_2019
           affinityGroup: S_NC_PS_001
-          environmentVariables:
-            dockerimage: mcr.microsoft.com/windows/nanoserver:1809-amd64
         execution:
           onExecute:
             # Generate random container name
@@ -15,6 +13,8 @@ pipelines:
             - $env:CONT_NAME="win-$env:RAND_ID"
             - echo "Container name $env:CONT_NAME"
             - add_run_variables container_name=$env:CONT_NAME
+            - $env:dockerimage = "$env:step_image_name", ":", "$env:step_image_tag"
+            - $env:dockerimage = -join ("$env:dockerimage")
             # Create container
             - docker run -d --name $env:CONT_NAME $env:dockerimage
 

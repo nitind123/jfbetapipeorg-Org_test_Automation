@@ -35,16 +35,6 @@ pipelines:
             - write-output "Hi"
             - docker images
 
-      - name: S_u16dynamic
-        type: Bash
-        configuration:
-          nodePool: u16dynamic
-          inputResources:
-            - name: S_connecting_resource_node_test
-        execution:
-          onExecute:
-            - docker images
-
       - name: S_c7dynamic
         type: Bash
         configuration:
