@@ -4,7 +4,7 @@ pipelines:
       - name: N_DyNodeAZ_c7
         type: Bash
         configuration:
-          nodePool: azure_dynamic_nodePool
+          nodePool: azure_dynamic_nodePool_c7
         execution:
           onExecute:
             - echo "executing step..."

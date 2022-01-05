@@ -4,7 +4,7 @@ pipelines:
       - name: myStep1
         type: Bash
         configuration: 
-          nodePool: azure_dynamic_nodePool
+          nodePool: azure_dynamic_nodePool_c7
           runtime:
             type: host
         execution:

@@ -4,7 +4,7 @@ pipelines:
       - name: N_DyNodeAZ_w19
         type: PowerShell
         configuration: 
-          nodePool: azure_dynamic_nodePool
+          nodePool: azure_dynamic_nodePool_w19
           runtime:
             type: host
         execution:
