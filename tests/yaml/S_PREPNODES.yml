@@ -1,3 +1,6 @@
+template: true
+valuesFilePath: ../values/gitRepoValues.yml
+
 pipelines:
   - name: S_PREPNODES
     steps:
@@ -17,94 +20,10 @@ pipelines:
             - name: S_PREPNODES
         stepletMultipliers:
           environmentVariables:
-            - stepletNumber: 1
-            - stepletNumber: 2
-            - stepletNumber: 3
-            - stepletNumber: 4
-            - stepletNumber: 5
-            - stepletNumber: 6
-            - stepletNumber: 7
-            - stepletNumber: 8
-            - stepletNumber: 9
-            - stepletNumber: 10
-            - stepletNumber: 11
-            - stepletNumber: 12
-            - stepletNumber: 13
-            - stepletNumber: 14
-            - stepletNumber: 15
-            - stepletNumber: 16
-            - stepletNumber: 17
-            - stepletNumber: 18
-            - stepletNumber: 19
-            - stepletNumber: 20
-            - stepletNumber: 21
-            - stepletNumber: 22
-            - stepletNumber: 23
-            - stepletNumber: 24
-            - stepletNumber: 25
-            - stepletNumber: 26
-            - stepletNumber: 27
-            - stepletNumber: 28
-            - stepletNumber: 29
-            - stepletNumber: 30
-            - stepletNumber: 31
-            - stepletNumber: 32
-            - stepletNumber: 33
-            - stepletNumber: 34
-            - stepletNumber: 35
-            - stepletNumber: 36
-            - stepletNumber: 37
-            - stepletNumber: 38
-            - stepletNumber: 39
-            - stepletNumber: 40
-            - stepletNumber: 41
-            - stepletNumber: 42
-            - stepletNumber: 43
-            - stepletNumber: 44
-            - stepletNumber: 45
-            - stepletNumber: 46
-            - stepletNumber: 47
-            - stepletNumber: 48
-            - stepletNumber: 49
-            - stepletNumber: 50
-            - stepletNumber: 51
-            - stepletNumber: 52
-            - stepletNumber: 53
-            - stepletNumber: 54
-            - stepletNumber: 55
-            - stepletNumber: 56
-            - stepletNumber: 57
-            - stepletNumber: 58
-            - stepletNumber: 59
-            - stepletNumber: 60
-            - stepletNumber: 61
-            - stepletNumber: 62
-            - stepletNumber: 63
-            - stepletNumber: 64
-            - stepletNumber: 65
-            - stepletNumber: 66
-            - stepletNumber: 67
-            - stepletNumber: 68
-            - stepletNumber: 69
-            - stepletNumber: 70
-            - stepletNumber: 71
-            - stepletNumber: 72
-            - stepletNumber: 73
-            - stepletNumber: 74
-            - stepletNumber: 75
-            - stepletNumber: 76
-            - stepletNumber: 77
-            - stepletNumber: 78
-            - stepletNumber: 79
-            - stepletNumber: 80
-            - stepletNumber: 81
-            - stepletNumber: 82
-            - stepletNumber: 83
-            - stepletNumber: 84
-            - stepletNumber: 85
-            - stepletNumber: 86
-            - stepletNumber: 87
-            - stepletNumber: 88
+            {{ range $i, $e := until 100 }}
+            - foo: "bar{{$i}}"
+              x: {{$i}}
+            {{ end }}
         execution:
           onExecute:
             - echo "executing step..."
@@ -119,56 +38,10 @@ pipelines:
             - name: S_PREPNODES
         stepletMultipliers:
           environmentVariables:
-            - stepletNumber: 1
-            - stepletNumber: 2
-            - stepletNumber: 3
-            - stepletNumber: 4
-            - stepletNumber: 5
-            - stepletNumber: 6
-            - stepletNumber: 7
-            - stepletNumber: 8
-            - stepletNumber: 9
-            - stepletNumber: 10
-            - stepletNumber: 11
-            - stepletNumber: 12
-            - stepletNumber: 13
-            - stepletNumber: 14
-            - stepletNumber: 15
-            - stepletNumber: 16
-            - stepletNumber: 17
-            - stepletNumber: 18
-            - stepletNumber: 19
-            - stepletNumber: 20
-            - stepletNumber: 21
-            - stepletNumber: 22
-            - stepletNumber: 23
-            - stepletNumber: 24
-            - stepletNumber: 25
-            - stepletNumber: 26
-            - stepletNumber: 27
-            - stepletNumber: 28
-            - stepletNumber: 29
-            - stepletNumber: 30
-            - stepletNumber: 31
-            - stepletNumber: 32
-            - stepletNumber: 33
-            - stepletNumber: 34
-            - stepletNumber: 35
-            - stepletNumber: 36
-            - stepletNumber: 37
-            - stepletNumber: 38
-            - stepletNumber: 39
-            - stepletNumber: 40
-            - stepletNumber: 41
-            - stepletNumber: 42
-            - stepletNumber: 43
-            - stepletNumber: 44
-            - stepletNumber: 45
-            - stepletNumber: 46
-            - stepletNumber: 47
-            - stepletNumber: 48
-            - stepletNumber: 49
-            - stepletNumber: 50
+            {{ range $i, $e := until 50 }}
+            - foo: "bar{{$i}}"
+              x: {{$i}}
+            {{ end }}
         execution:
           onExecute:
             - write-output "executing step..."
