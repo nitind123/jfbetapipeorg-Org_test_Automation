@@ -1,0 +1,10 @@
+pipelines:
+  - name: pipelines_NR_DyNodeAWS_4109_0002
+    steps:
+      - name: NR_DyNodeAWS_4109_0002
+        type: Bash
+        configuration:
+          nodePool: AWS_dynamic_node_C8_rootless
+        execution:
+          onExecute:
+            - echo "executing step on AWS dynamic node pool"
