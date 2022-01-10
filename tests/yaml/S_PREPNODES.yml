@@ -18,13 +18,15 @@ pipelines:
           inputResources:
             - name: S_PREPNODES_GitRepo_resource
               trigger: false
+          integrations:
+            - name: s_artifactory
         execution:
           onExecute:
             - echo "executing step..."
             - jfrog rt u ${res_S_PREPNODES_GitRepo_resource_resourcePath}/tests/core/helmdeploy/simplehelm-0.3.0.tgz "helmgeneric/" --explode
             - jfrog rt u ${res_S_PREPNODES_GitRepo_resource_resourcePath}/tests/core/helmdeploy/simplehelm-0.3.0.tgz "test-automation-helm-local/" --explode
             - jfrog rt u ${res_S_PREPNODES_GitRepo_resource_resourcePath}/tests/core/helmdeploy/simplehelm-0.3.0.tgz "simplecharts/"
-            - jfrog rt u ${res_S_HelmDeploy_GitRepo_0016_resource_resourcePath}/tests/core/helmdeploy/index.yaml "simplecharts/"
+            - jfrog rt u ${res_S_PREPNODES_GitRepo_resource_resourcePath}/tests/core/helmdeploy/index.yaml "simplecharts/"
 
       - name: S_PREPNODES_BASH
         type: Matrix
