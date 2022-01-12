@@ -5,7 +5,7 @@ pipelines:
       - name: N_DyNodeGCP_0042
         type: Bash
         configuration:
-          nodePool: GCP_dynamic_nodePool
+          nodePool: GCP_dynamic_nodePool_c7
           runtime:
             type: host
         execution:

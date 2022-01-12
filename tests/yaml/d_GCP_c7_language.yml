@@ -4,7 +4,7 @@ pipelines:
       - name: d_GCP_c7_language
         type: Bash
         configuration:
-          nodePool: GCP_dynamic_nodePool
+          nodePool: GCP_dynamic_nodePool_c7
           runtime:
             type: host
         execution:

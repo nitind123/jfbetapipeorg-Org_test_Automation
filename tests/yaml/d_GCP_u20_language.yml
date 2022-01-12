@@ -4,7 +4,7 @@ pipelines:
       - name: d_GCP_u20_language
         type: Bash
         configuration:
-          nodePool: GCP_dynamic_nodePool
+          nodePool: GCP_dynamic_nodePool_u20
           runtime:
             type: host
         execution:
