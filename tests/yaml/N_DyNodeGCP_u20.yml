@@ -5,7 +5,7 @@ pipelines:
       - name: N_DyNodeGCP_u20
         type: Bash
         configuration:
-          nodePool: _u20
+          nodePool: GCP_dynamic_nodePool_u20
         execution:
           onExecute:
             - echo "executing step..."
