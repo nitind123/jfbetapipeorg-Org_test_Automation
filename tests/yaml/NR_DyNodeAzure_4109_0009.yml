@@ -4,7 +4,7 @@ pipelines:
       - name: NR_DyNodeAzure_4109_0009
         type: Bash
         configuration:
-          nodePool: Azure_dynamic_node_u18_rootless
+          nodePool: azure_dynamic_node_u18_rootless
         execution:
           onExecute:
             - echo "executing step on Azure dynamic node pool"
