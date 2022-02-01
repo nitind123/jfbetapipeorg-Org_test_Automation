@@ -119,27 +119,27 @@ pipelines:
           onStart:
             - generic_repo_name="e2e-0001-002-generic-local"
             - docker_repo_name="e2e-0001-002-docker-local"
+#skipping until upload of gpg key happens on deploy step
+      # - name: e2e_0002_createReleaseBundle
+      #   type: CreateReleaseBundle
+      #   configuration:
+      #     #inherits from bash
+      #     releaseBundleName: e2e_0002_${run_number}
+      #     releaseBundleVersion: ${run_number}
+      #     inputResources:
+      #       - name: e2e_0002_promotedInfo
+      #     outputResources:
+      #       - name: e2e_0002_releaseBundle
+      #     dryRun: false
 
-      - name: e2e_0002_createReleaseBundle
-        type: CreateReleaseBundle
-        configuration:
-          #inherits from bash
-          releaseBundleName: e2e_0002_${run_number}
-          releaseBundleVersion: ${run_number}
-          inputResources:
-            - name: e2e_0002_promotedInfo
-          outputResources:
-            - name: e2e_0002_releaseBundle
-          dryRun: false
 
-
-      - name: e2e_0002_signReleaseBundle
-        type: SignReleaseBundle
-        configuration:
-          inputResources:
-            - name: e2e_0002_releaseBundle
-          outputResources:
-            - name: e2e_0002_signedReleaseBundle
+      # - name: e2e_0002_signReleaseBundle
+      #   type: SignReleaseBundle
+      #   configuration:
+      #     inputResources:
+      #       - name: e2e_0002_releaseBundle
+      #     outputResources:
+      #       - name: e2e_0002_signedReleaseBundle
       # skipping this until self distribution works
       # - name: e2e_0002_distributeReleaseBundle
       #   type: DistributeReleaseBundle
