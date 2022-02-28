@@ -5,7 +5,7 @@ pipelines:
       - name: N_DyNodeAzure_0053
         type: Bash
         configuration:
-          nodePool: azure_dynamic_nodePool
+          nodePool: azure_dynamic_nodePool_c8
           runtime:
             type: host
         execution:

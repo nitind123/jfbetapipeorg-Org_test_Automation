@@ -4,7 +4,7 @@ pipelines:
       - name: N_DyNodeAzure_0057_1
         type: Bash
         configuration:
-          nodePool: azure_dynamic_nodePool
+          nodePool: azure_dynamic_nodePool_u20
         execution:
           onExecute:
             - echo "N_DyNodeAzure_0057_1"

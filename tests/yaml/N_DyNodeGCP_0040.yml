@@ -4,7 +4,7 @@ pipelines:
       - name: N_DyNodeGCP_0040_1
         type: Bash
         configuration:
-          nodePool: GCP_dynamic_nodePool
+          nodePool: GCP_dynamic_nodePool_u18
         execution:
           onExecute:
             - echo "N_DyNodeGCP_0040_1"
