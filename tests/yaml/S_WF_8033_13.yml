@@ -1,0 +1,10 @@
+pipelines:
+  - name: S_WF_8033_07_pipe
+    steps:
+      - name: S_WF_8033_07_step
+        type: TriggerPipeline
+        configuration:
+          integrations:
+            - name: i_triggerpipeline_8033_JFrogPlatformToken
+          pipelineName: S_WF_8033_07_target
+          stepName: S_WF_8033_07_target_step
