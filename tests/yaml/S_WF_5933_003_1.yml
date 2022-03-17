@@ -5,6 +5,7 @@ pipelines:
         type: PowerShell
         configuration:
           affinityGroup: S_WF_5933_003_affinityGroup2
+          nodePool: win_2019
         execution:
           onExecute:
             - Write-Output "test"
