@@ -5,7 +5,7 @@ pipelines:
         type: TriggerPipeline
         configuration:
           integrations:
-            - name: i_triggerpipeline_8033_JFrogPlatformToken
+            - name: BS_TriggerPipeline_8033_JFrogPlatformToken
           pipelineName: foo
           stepName: foo
         execution:
