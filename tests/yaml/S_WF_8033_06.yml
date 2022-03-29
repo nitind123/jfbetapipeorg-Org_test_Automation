@@ -6,7 +6,7 @@ pipelines:
         type: TriggerPipeline
         configuration:
           integrations:
-            - name: i_triggerpipeline_8033_JFrogPlatformToken
+            - name: WF_TriggerPipeline_8033_JFrogPlatformToken
           pipelineName: S_WF_8033_06_target
           stepName: S_WF_8033_06_target_fakestep
 
