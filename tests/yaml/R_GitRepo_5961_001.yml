@@ -6,7 +6,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: s_gitHub
-      path: {{ .Values.GitHub.Org_test_Automation.path }}
+      path: {{ .Values.GitHub.Org_test_Automation_Webhooks.path }}
       branches:
         include: {{gitBranch}}
 
@@ -14,7 +14,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: s_gitHub
-      path: {{ .Values.GitHub.Org_test_Automation.path }}
+      path: {{ .Values.GitHub.Org_test_Automation_Webhooks.path }}
       buildOn:
         pullRequestCreate: true
         commit: false
@@ -25,7 +25,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: s_gitHub
-      path: {{ .Values.GitHub.Org_test_Automation.path }}
+      path: {{ .Values.GitHub.Org_test_Automation_Webhooks.path }}
       buildOn:
         pullRequestCreate: true
         commit: false
@@ -36,7 +36,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: s_gitHub
-      path: {{ .Values.GitHub.Org_test_Automation.path }}
+      path: {{ .Values.GitHub.Org_test_Automation_Webhooks.path }}
       buildOn:
         pullRequestCreate: true
         commit: false
@@ -48,7 +48,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: s_gitHub
-      path: {{ .Values.GitHub.Org_test_Automation.path }}
+      path: {{ .Values.GitHub.Org_test_Automation_Webhooks.path }}
       buildOn:
         pullRequestCreate: true
         commit: false
@@ -59,7 +59,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: s_gitHub
-      path: {{ .Values.GitHub.Org_test_Automation.path }}
+      path: {{ .Values.GitHub.Org_test_Automation_Webhooks.path }}
       buildOn:
         pullRequestCreate: true
         commit: false
@@ -70,7 +70,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: s_gitHub
-      path: {{ .Values.GitHub.Org_test_Automation.path }}
+      path: {{ .Values.GitHub.Org_test_Automation_Webhooks.path }}
       buildOn:
         pullRequestCreate: true
         commit: false
@@ -82,7 +82,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: s_gitHub
-      path: {{ .Values.GitHub.Org_test_Automation.path }}
+      path: {{ .Values.GitHub.Org_test_Automation_Webhooks.path }}
       buildOn:
         pullRequestCreate: true
         commit: false
@@ -95,7 +95,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: s_gitHub
-      path: {{ .Values.GitHub.Org_test_Automation.path }}
+      path: {{ .Values.GitHub.Org_test_Automation_Webhooks.path }}
       buildOn:
         pullRequestCreate: true
         commit: false
@@ -108,7 +108,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: s_gitHub
-      path: {{ .Values.GitHub.Org_test_Automation.path }}
+      path: {{ .Values.GitHub.Org_test_Automation_Webhooks.path }}
       buildOn:
         pullRequestCreate: true
         commit: false
@@ -119,7 +119,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: s_gitHub
-      path: {{ .Values.GitHub.Org_test_Automation.path }}
+      path: {{ .Values.GitHub.Org_test_Automation_Webhooks.path }}
       buildOn:
         pullRequestCreate: true
         commit: false
@@ -130,7 +130,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: s_gitHub
-      path: {{ .Values.GitHub.Org_test_Automation.path }}
+      path: {{ .Values.GitHub.Org_test_Automation_Webhooks.path }}
       buildOn:
         pullRequestCreate: true
         commit: false
