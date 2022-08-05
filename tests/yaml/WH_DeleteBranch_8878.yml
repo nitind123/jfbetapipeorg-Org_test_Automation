@@ -1,3 +1,6 @@
+template: true
+valuesFilePath: ../values/gitRepoValues.yml
+
 resources:
   - name: myPropertyBag
     type: PropertyBag
@@ -7,14 +10,11 @@ resources:
   - name: myFirstRepo
     type: GitRepo
     configuration:
-      # SCM integration where the repository is located
-      gitProvider: gitmyhub # this will be replaced from values.yml
-      # Repository path, including org name/repo name
-      path: TP/pipelines-test-repo # this will be replaced from values.yml
+      gitProvider: s_gitHub
+      path: {{ .Values.GitHub.Org_test_Automation.path }}
 
 pipelines:
   - name: demo_manual
-
     steps:
       - name: manual_trigger
         type: Bash
